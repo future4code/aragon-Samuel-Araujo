@@ -1,0 +1,49 @@
+body {
+    background-image: linear-gradient(to right,rgb(163, 153, 153), rgb(255, 255, 255));
+}
+.corpo-texto {
+    text-align : center;
+}
+header {
+    background-color: rgb(255, 0, 0);
+    border: 5px solid rgb(255, 255, 255);
+    padding: 5px;
+}
+.logo-header {
+    display: inline;
+}
+.navegacao {
+    display: inline;
+    color: blue;
+    margin: 4px;
+}
+a {
+    margin: 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.boas-vindas {
+    font-family: Arial;
+    font-weight:200;
+}
+.titulo-bv {
+    font-family: Arial;
+}
+.paragrafo-bv {
+    font-family: Arial;
+
+}
+footer {
+    font-size: 15px;
+    text-align: center;
+    background-color: rgb(255, 0, 0);
+    border: 5px solid rgb(255, 255, 255);
+    padding: 4px;
+    margin-top: 10px;
+}
+.rodape {
+    margin: 2px;
+}
+#redes-socias {
+    margin-left: 20px;
+}
