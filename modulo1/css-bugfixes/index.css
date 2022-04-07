@@ -75,8 +75,9 @@ div img {
     
 }
 
-#container-de-descricao>ol {
-    padding: 15px 0px;
+#container-de-descricao > ol {
+    padding: 1vw 40vw;
+    margin-top: 100px;
 }
 
 #container-para-comprar {
@@ -89,11 +90,14 @@ div img {
     font-size: 60px;
     
 }
-.texto-container {
+#paragrafo-container {
     position: relative;
     top: 100px;
 }
-
+#titulo-container {
+    position: relative;
+    top: 5px;
+}
 
 
 /**
