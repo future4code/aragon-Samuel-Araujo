@@ -25,17 +25,14 @@ button:focus {
     color: white;
 }
 
-img {
-    width: 100px;
+td img {
+    width: 35px;
 }
 
 div>p:first-child {
     display: inline;
 }
 
-div img {
-    background: black;
-}
 
 .botao-amarelo {
     background-color: #ffaf43;
@@ -50,19 +47,26 @@ div img {
 }
 
 .botao-amarelo:hover {
-    background-color: #c44f00;
+    background-color: white;
+    color:#ffaf43 ;
 }
 
 .container {
     height: 500px;
     text-align: center;
+    text-decoration: none;
 }
 
 .icone {
     height: 15px;
 }
-
-
+button{
+    font-family: Arial;
+}
+button:hover {
+    background-color: #fe7e02;
+    color: white;
+}
 /** 
   *
   *  ESTILOS HOME 
@@ -76,7 +80,7 @@ div img {
 }
 
 #container-de-descricao > ol {
-    padding: 1vw 40vw;
+    padding: 1vw 41vw;
     margin-top: 100px;
 }
 
@@ -125,6 +129,7 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    border: 0px;
 }
 
 .container-do-search {
@@ -141,8 +146,12 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
-
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #ffaf43;
+
 }
