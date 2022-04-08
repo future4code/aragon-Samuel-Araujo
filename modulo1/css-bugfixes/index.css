@@ -69,9 +69,7 @@ div>p:first-child {
     opacity: 1;
 }
 
-button{
-    font-family: Arial;
-}
+
 button:hover {
     background-color: #fe7e02;
     color: white;
