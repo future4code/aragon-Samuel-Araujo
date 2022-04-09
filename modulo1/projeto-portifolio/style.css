@@ -1,0 +1,131 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+    /* header */
+body {
+    font-family: Arial;
+    background-color: rgb(116, 116, 116);
+}
+.foto-eu {
+    width: 80px;
+    border-radius:  200px;
+    position: relative;
+    top: 30px;
+    left: 10px;
+}
+header {
+    background-color: lightblue;
+    color: white;
+    font-weight: bolder;
+}
+
+
+header nav {
+    display: inline;
+    font-size: 20px;
+    position: relative;
+    left: 400px;
+    bottom: 60px;
+
+}
+header a {
+    text-decoration: none;
+    color: white;
+}
+header p {
+    position: relative;
+    bottom: 16px;
+    left: 110px;
+    
+    
+}
+header button {
+    width: 150px;
+    padding: 10px;
+    background-color: rgb(116, 116, 116);
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+}
+header button:hover {
+    opacity: 80%;   
+}
+header button:active {
+    background-color: lightblue;
+}
+/* Quem sou eu */
+#sobre-mim {
+    margin: 20px 30px;
+    background-color:lightblue;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+h2 {
+    position: relative;
+    left: 20px;
+    margin-bottom: 4px;
+    color: white;
+}
+h3 {
+    position: relative;
+    top: 5px;
+    left: 30px;
+}
+
+#sobre-mim p {
+    position: relative;
+    margin: 0px 20px;
+    font-size: 20px;
+}
+
+#carreira {
+    margin: 20px 30px;
+    background-color:lightblue;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+img{
+    width: 150px;
+    border-radius: 200px;
+    margin: 0px 10px;
+    margin-top: 10px; 
+}
+table {
+    position: relative;
+    left: 55px;
+    text-align: center;
+    width: 1000px;
+    top: 5px;
+}
+.ens {
+    padding: 20px;
+    border: 2px solid black;
+    margin: 10px;
+}
+.pro {
+    padding: 20px;
+    border: 2px solid black;
+    margin: 10px;
+}
+td {
+    font-weight: bolder;
+}
+#projetos {
+    margin: 20px 30px;
+    background-color:lightblue;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.efeito :hover {
+    opacity: 70%;
+    transition: all 0.5s;
+    cursor: pointer;
+}
