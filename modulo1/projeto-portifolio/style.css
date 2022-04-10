@@ -18,8 +18,8 @@ header {
     background-color: lightblue;
     color: white;
     font-weight: bolder;
+    display: block;
 }
-
 
 header nav {
     display: inline;
@@ -41,7 +41,7 @@ header p {
     
 }
 header button {
-    width: 150px;
+    width: 120px;
     padding: 10px;
     background-color: rgb(116, 116, 116);
     border-radius: 20px;
@@ -128,4 +128,89 @@ td {
     opacity: 70%;
     transition: all 0.5s;
     cursor: pointer;
+}
+
+#habilidades{
+     margin: 20px 30px;
+    background-color:lightblue;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+.ss{
+    position: relative;
+    top: 10px;
+    left: 40px;
+}
+.hs {
+    position: relative;
+    bottom: 82px;
+    left: 350px;
+}
+#contato{
+    margin: 20px 30px;
+    background-color:lightblue;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+form{
+    margin: 20px 40px;
+}
+#nome-form{
+    margin: 4px 20px;
+    border-radius: 5px;
+    border: none;
+}
+#email-form{
+    margin: 4px 90px;
+    border-radius: 5px;
+    border: none;
+}
+#mensagem{
+    margin: 4px 55px;
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+#la-msg {
+    position: relative;
+    bottom: 30px;
+}
+#nome-form:hover{
+    opacity: 70%;
+    transition: all 0.5s;
+    cursor:auto;
+}
+#email-form:hover{
+    opacity: 70%;
+    transition: all 0.5s;
+    cursor:auto;
+}
+#mensagem:hover{
+    opacity: 70%;
+    transition: all 0.5s;
+    cursor:auto;
+}
+footer img {
+    width: 70px;
+    position: relative;
+    left: 1050px;
+    
+}
+footer{
+background-color: lightblue;
+color: white;
+font-weight: bolder;
+display: block;
+}
+footer h2 {
+    position: relative;
+    top: 10px;
+}
+footer img:hover {
+    opacity: 70%;
+    transition: all 0.5s;
+    cursor:auto;
 }
