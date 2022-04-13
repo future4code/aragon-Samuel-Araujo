@@ -104,7 +104,7 @@ footer img {
     font-size: 40px;
 }
 .video-detalhe embed {
-    width: 760px;
-    height: 428px;
+    width: 61vw;
+    height: 72vh;
     box-shadow: 2px 2px 8px rgb(255, 122, 99);
 }
