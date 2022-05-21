@@ -28,7 +28,7 @@ font-style: normal;
 }
 
 .button-astro{
-  width: 9vw;
+  width: 7rem;
   height: 44px;
   background: #F0940A;
   border-radius: 50px;
@@ -44,6 +44,36 @@ font-style: normal;
   transition: 600ms;
   cursor: pointer;
 }
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  height: 90px;
+
+.title-astro {
+  font-weight: 650;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+
+.button-astro{
+  width: 6rem;
+  height: 30px;
+  background: #F0940A;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  font-weight: 550;
+  font-size: 1.2rem;
+  margin-right: 20px;
+}
+.button-astro:hover{
+  background-color: #F0940A;
+  color: white;
+  transition: 0;
+  cursor: pointer;
+}
+
+}
+
 `
 
 function Header(props) {
