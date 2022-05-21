@@ -2,6 +2,17 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Match from './pages/Match'
 import Profile from './pages/Profile'
+import { createGlobalStyle } from "styled-components"
+
+
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  };
+`
 
 function App() {
   const [currentPage, setCurrentPage] = useState("profile")
@@ -24,6 +35,7 @@ function App() {
 
   return (
     <div>
+      <GlobalStyle />
       <Header
         goToMatch={goToMatch}
         currentPage={currentPage}

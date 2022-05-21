@@ -1,6 +1,28 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { ALUNO, BASE_URL } from '../constants/Url'
+import styled from 'styled-components'
+
+const PeopleCard = styled.main`
+  .people {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .people-img{
+    width: 20%;
+    object-fit: contain;
+    border-radius: 50px;
+  }
+
+  .text-button{
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+  }
+`
 
 
 function Profile() {
@@ -27,7 +49,9 @@ function Profile() {
     axios.post(`${BASE_URL}/${ALUNO}/choose-person`, body)
     .then((response)=>{
       getProfile()
-      console.log(response)
+      if (body.choice && response.data.isMatch){
+        alert("Deu match! ❤")
+      }
     })
     .catch(()=>{
       console.error("deu ruim")
@@ -37,7 +61,7 @@ function Profile() {
   const restart = () => {
     axios.put(`${BASE_URL}/${ALUNO}/clear`)
     .then(()=>{
-      alert('Perfis resetados com sucesso! <3')
+      alert('Perfis resetados com sucesso!')
       getProfile()
     })
     .catch(()=>{
@@ -45,23 +69,31 @@ function Profile() {
     })
   }
     const peopleCard = profile && (
-      <figure>
-          <img width={"240px"} src={profile.photo} alt={profile.photo_alt} />
-          <p>{profile.name}, {profile.age}</p>
+      <figure className='people'>
+        
+          <img className='people-img' src={profile.photo} alt={profile.photo_alt} />
+        <div className='text-button'>
+            <p>{profile.name}</p>
+            <button onClick={() => likeOrDislike(profile.id, true)}>Like</button>
+        </div>
+        <div className='text-button'>
+          <p>{profile.age} Anos</p>
+          <button onClick={() => likeOrDislike(profile.id, false)}>Dislike</button>
+        </div>
           <p>{profile.bio}</p>
-        <button onClick={() => likeOrDislike(profile.id, false)}>Dislike</button>
-        <button onClick={() => likeOrDislike(profile.id, true)}>Like</button>
+        
+        
 
       </figure>
     )
 
 
   return (
-    <div>
-        <h2>Perfis</h2>
+    <PeopleCard>
+        <h2>Astros</h2>
         {peopleCard}
-        <button onClick={() => restart()}>Resetar Perfis</button>
-    </div>
+        {profile ? <div>teste</div> :<button onClick={() => restart()}>Resetar Perfis</button>}
+    </PeopleCard>
   )
 }
 
