@@ -5,7 +5,7 @@ function HomePage () {
         <div>
             <Header currentPage = {"homePage"}/>
             <hr />
-            <h2>Inscreva-se numa nova viagem!</h2>
+            <h2>Inscreva-se uma nova viagem!</h2>
         </div>
     )
 
