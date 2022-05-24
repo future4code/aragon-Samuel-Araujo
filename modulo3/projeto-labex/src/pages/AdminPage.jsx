@@ -15,11 +15,6 @@ function AdminPage () {
         }
     },[])
 
-    const logout = () => {
-        if(confirm("Tem certeza que quer sair?")){
-            localStorage.removeItem("token")
-        }
-    }
     return(
         <div>
             <Header currentPage = {"adminPage"} />
