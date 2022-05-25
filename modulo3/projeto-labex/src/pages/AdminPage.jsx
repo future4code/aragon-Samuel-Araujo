@@ -3,23 +3,26 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../components/Header"
 import { navigateToHome } from "../routes/coordinator"
+import TravelList from "../components/TravelList"
 
-function AdminPage () {
-    const token= localStorage.getItem("token")
+function AdminPage() {
+    const token = localStorage.getItem("token")
 
-    const navigate= useNavigate()
+    const navigate = useNavigate()
 
-    useEffect(()=>{
-        if(!token){
+    useEffect(() => {
+        if (!token) {
             navigateToHome(navigate)
         }
-    },[])
+    }, [])
 
-    return(
+    return (
         <div>
-            <Header currentPage = {"adminPage"} />
+            <Header currentPage={"adminPage"} />
             <hr />
             <h2>Crie uma nova viagem</h2>
+            <hr />
+            <TravelList currentPage={"adminPage"} />
         </div>
     )
 

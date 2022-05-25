@@ -1,11 +1,14 @@
 import Header from "../components/Header"
+import TravelList from "../components/TravelList"
 
-function HomePage () {
-    return(
+function HomePage() {
+    return (
         <div>
-            <Header currentPage = {"homePage"}/>
+            <Header currentPage={"homePage"} />
             <hr />
             <h2>Inscreva-se uma nova viagem!</h2>
+            <hr />
+            <TravelList currentPage={"homePage"} />
         </div>
     )
 
