@@ -2,9 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../components/Header"
-import { navigateToAdminPage, navigateToHome } from "../routes/coordinator"
+import { navigateToHome } from "../routes/coordinator"
 import TravelList from "../components/TravelList"
 import { BASE_URL, user } from "../constants/url"
+
 
 function AdminPage() {
     
@@ -14,6 +15,8 @@ function AdminPage() {
     const [inputDate, setInputDate] = useState("")
     const [textareaDescription, setTextareaDescription] = useState("")
     const [inputDuration, setInputDuration] = useState("")
+    const [id, setId] = useState("")
+
 
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
@@ -97,7 +100,7 @@ function AdminPage() {
                 name="select"
                 id="planet"
                 >
-                    <option defaultValue>Escolha um planeta</option>
+                    <option value="" disabled selected>Escolha um planeta</option>
                     <option value="Mercúrio">Mercúrio</option>
                     <option value="Vênus">Vênus</option>
                     <option value="Terra">Terra</option>

@@ -1,11 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { BASE_URL, user } from "../constants/url"
+import { navigateToDetailsPage } from "../routes/coordinator"
 
 function TravelList(props) {
     const [travelList, setTravelList] = useState(undefined)
 
-
+    const navigate = useNavigate() 
     useEffect(() => {
         getTrips()
     }, [])
@@ -50,7 +52,7 @@ function TravelList(props) {
                 {
                 props.currentPage === "adminPage"
                 && <nav>
-                    <button>Exibir detalhes</button>
+                    <button onClick={() => {navigateToDetailsPage(navigate)}}>Exibir detalhes</button>
                     <button onClick={()=> {deleteTrip(travel.id)}}>Excluir viagem</button>
                 </nav>
                 }
