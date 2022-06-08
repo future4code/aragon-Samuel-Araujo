@@ -9,11 +9,22 @@ export default function GlobalState(props) {
             password: ""
         }
     )
+
+    const [signup, setSignup] = useState(
+        {
+            username: "",
+            email: "",
+            password:"" 
+        }
+    )
+
     const states = {
-        form: form
+        form: form,
+        signup: signup
     }
     const setters = {
-        setForm: setForm
+        setForm: setForm,
+        setSignup: setSignup
     }
     const context = {states, setters}
     return (

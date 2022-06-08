@@ -8,8 +8,8 @@ import { goToPostPage, goToSignup } from "../routes/coordinator";
 
 export default function LoginPage() {
     const context = useContext(GlobalContext)
-    const {setForm} = context.setters
     const {form} = context.states
+    const {setForm} = context.setters
 
     const token = window.localStorage.getItem("token-labEddit")
 
@@ -39,6 +39,8 @@ export default function LoginPage() {
     return(
         <>
             <Header />
+            <hr />
+            <h2>Login</h2>
             <form onSubmit={login}>
                 <label htmlFor="email">E-mail:</label>
                 <input
