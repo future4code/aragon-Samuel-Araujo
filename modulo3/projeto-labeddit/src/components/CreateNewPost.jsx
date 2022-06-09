@@ -1,14 +1,14 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { BASE_URL } from "../constants/BASE_URL"
 import { goToPostPage } from "../routes/coordinator"
 
-export default function CreateNewPost() {
+export default function CreateNewPost(props) {
     const [newPost, setNewPost] = useState(
         {
-            title: "",
-            body: ""
+            "title": "",
+            "body": ""
         }
     )
 
@@ -19,14 +19,27 @@ export default function CreateNewPost() {
     }
 
     const token = window.localStorage.getItem("token-labEddit")
-    const createPost = () => {
-        axios.post(`${BASE_URL}/posts`, newPost, token)
-        .then((res)=>{
-            console.log(res)
+
+    const createPost = (event) => {
+        event.preventDefault()
+
+        axios.post(`${BASE_URL}/posts`, newPost,
+        {
+            headers:{
+                Authorization: token
+            }
         })
-        .catch((err)=>{console.log(err)}) //ainda não está funcionando
+        .then(()=>{
+            alert("Post criado com sucesso")
+            props.getPosts()
+            
+        })
+        .catch((err)=>{
+            alert("Algo deu errado, tente novamente")
+            console.log(err)
+        })
     }
-    
+
     return(
         <>
             <h2>Crie um novo Post</h2>

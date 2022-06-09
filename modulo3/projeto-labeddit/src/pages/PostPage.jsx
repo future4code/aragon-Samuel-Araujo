@@ -37,7 +37,7 @@ export default function PostPage() {
             console.log(posts)
         })
         .catch((err)=>{
-            console.log(err.res)
+            console.log(err)
         })
 
     }
@@ -65,7 +65,7 @@ export default function PostPage() {
         <h3>Bem-vindo, {email}</h3>
         <button onClick={()=>{logout()}}>Logout</button>
         <hr />
-        <CreateNewPost />
+        <CreateNewPost getPosts={getPosts}/>
         <hr />
         {page !== 1 && <button onClick={() => changePage(-1)}>Página Anterior</button>}
         <p>{page}</p>
@@ -73,7 +73,7 @@ export default function PostPage() {
         {page > 2 && <button onClick={() => backToStart()}>Voltar ao começo</button>}
         <hr />
         <h3>Lista de Posts</h3>
-        <CardPost posts={posts} />
+        <CardPost getPosts={getPosts} posts={posts} />
         </>
     )
 }
