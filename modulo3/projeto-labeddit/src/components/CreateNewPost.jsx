@@ -1,18 +1,12 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useContext} from "react"
 import { BASE_URL } from "../constants/BASE_URL"
-import { goToPostPage } from "../routes/coordinator"
+import { GlobalContext } from "../global/GlobalState"
 
 export default function CreateNewPost(props) {
-    const [newPost, setNewPost] = useState(
-        {
-            "title": "",
-            "body": ""
-        }
-    )
-
-    const navigate = useNavigate()
+    const context = useContext(GlobalContext)
+    const {newPost} = context.states
+    const {setNewPost} = context.setters
 
     const onChangeNewPost = (event) => {
         setNewPost({...newPost, [event.target.name]: event.target.value})
