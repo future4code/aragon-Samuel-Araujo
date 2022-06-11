@@ -33,7 +33,7 @@ export default function() {
 
             goToPostPage(navigate)
         })
-        .catch((err)=>{alert("Eita, houve algum erro...Verifique seus dados e tente novamente!")})
+        .catch(()=>{alert("Eita, houve algum erro...Verifique seus dados e tente novamente!")})
     }
 
     useEffect(()=>{
@@ -47,7 +47,6 @@ export default function() {
     return(
         <>
             <Header />
-            <hr />
             <h2>Cadastro de Novo Usuário</h2>
             <form onSubmit={newUser}>
                 <label htmlFor="nome">Nome:</label>

@@ -15,7 +15,6 @@ export default function CommentPage() {
     return (
         <>
             <Header />
-            <hr />
             <button onClick={() => goToBack(navigate)}>Voltar</button>
             <CardPost
                 key={post.id}

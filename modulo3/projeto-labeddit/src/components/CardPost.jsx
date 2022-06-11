@@ -5,6 +5,12 @@ import { BASE_URL } from "../constants/BASE_URL"
 import { GlobalContext } from "../global/GlobalState"
 import { goToComment } from "../routes/coordinator"
 import { refactorDate } from "../utility/refactorDate"
+import styled from "styled-components"
+
+const MainPosts = styled.main`
+
+
+`
 
 export default function CardPost(props) {
     const token = window.localStorage.getItem("token-labEddit")
@@ -84,7 +90,7 @@ export default function CardPost(props) {
     
 
     return (
-        <>
+        <MainPosts>
             <div key={id}>
                 <h3>{username}</h3>
                 <h2>{title}</h2>
@@ -120,10 +126,9 @@ export default function CardPost(props) {
                     
                 </p>
                 {props.feed && <button onClick={() => goComment()}>Ver comentários</button>}
-                <hr />
             </div>
 
 
-        </>
+        </MainPosts>
     )
 }
