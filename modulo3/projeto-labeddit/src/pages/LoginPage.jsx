@@ -92,8 +92,13 @@ export default function LoginPage() {
                 window.localStorage.setItem("token-labEddit", res.data.token)
                 window.localStorage.setItem("email-labEddit", form.email)
                 goToPostPage(navigate)
+                setForm({            email: "",
+                password: ""})
+
             })
-            .catch((err) => { alert("Ops, parece que algo deu errado no seu login. deixa eu te fazer uma perguntinha, você já é cadastrado no LabEddit?") })
+            .catch((err) => { alert("Ops, parece que algo deu errado no seu login. deixa eu te fazer uma perguntinha, você já é cadastrado no LabEddit?")
+            setForm({            email: "",
+            password: ""}) })
     }
 
     useEffect(() => {

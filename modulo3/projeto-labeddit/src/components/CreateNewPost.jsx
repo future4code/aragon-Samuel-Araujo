@@ -70,6 +70,10 @@ export default function CreateNewPost(props) {
             .then(() => {
                 alert("Post criado com sucesso")
                 props.getPosts()
+                setNewPost({
+                    "title": "",
+                    "body": ""
+                })
 
             })
             .catch((err) => {
