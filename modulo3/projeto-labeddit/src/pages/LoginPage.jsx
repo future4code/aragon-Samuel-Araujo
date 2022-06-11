@@ -100,6 +100,7 @@ export default function LoginPage() {
         if (token) {
             goToPostPage(navigate)
         }
+        document.title = "LabEddit | Login"
     }, [])
     return (
         <>

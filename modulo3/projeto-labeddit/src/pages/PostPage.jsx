@@ -113,7 +113,8 @@ const SectionPosts = styled.section`
     }
     .page {
         margin: 10px;
-        font-size: 2rem;
+        font-size: 1.5rem;
+        font-weight: bolder;
     }
 
     .button-return-page {
@@ -197,6 +198,7 @@ export default function PostPage() {
     }
 
     useEffect(() => {
+        document.title = "LabeEddit | Posts"
         if (posts) {
             getPosts(page)
         }
@@ -222,7 +224,6 @@ export default function PostPage() {
                 </div>
                 <p className="page"> Página: {page}</p>
                 {page > 2 && <button className="button-return-page" onClick={() => backToStart()}>Voltar ao começo</button>}
-                <h3>Lista de Posts</h3>
                 <div className="show-post">
                     {showPost}
                 </div>

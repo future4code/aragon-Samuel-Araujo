@@ -5,6 +5,72 @@ import Header from "../components/Header";
 import { BASE_URL } from "../constants/BASE_URL";
 import { GlobalContext } from "../global/GlobalState";
 import { goToBack, goToPostPage } from "../routes/coordinator";
+import styled from "styled-components";
+
+const SectionSignup = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #6cffffb6 ;
+    width: 50%;
+    height: 290px;
+    margin: 8% auto;
+    border-radius: 12px;
+    padding: 10px;
+
+    .form{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .inputs {
+        width: 160%;
+        height: 15%;
+        border: none;
+        padding: 10px;
+    }
+
+    .inputs:hover {
+        opacity: 70%;
+        text-shadow: red -2px 0, cyan 2px 0;
+    }
+
+    .button {
+        border: none;
+        width: 70%;
+        height: 12%;
+        background-color: white;
+        border-radius: 12px;
+        text-shadow: red -1px 0, cyan 1px 0;
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+    .button:hover {
+        cursor: pointer;
+        text-shadow: red -3px 0, cyan 3px 0;
+    }
+
+    .button-back {
+        margin-bottom: 10px;
+        border: none;
+        width: 15%;
+        height: 12%;
+        background-color: white;
+        border-radius: 12px;
+        text-shadow: red -1px 0, cyan 1px 0;
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+    .button-back:hover {
+        cursor: pointer;
+        text-shadow: red -3px 0, cyan 3px 0;
+    }
+`
 
 export default function() {
     const context = useContext(GlobalContext)
@@ -35,7 +101,9 @@ export default function() {
         })
         .catch(()=>{alert("Eita, houve algum erro...Verifique seus dados e tente novamente!")})
     }
-
+    useEffect(() => {
+        document.title = "LabEddit | Cadastro"
+    },[])
     useEffect(()=>{
         if(token) {
             goToPostPage(navigate)
@@ -47,10 +115,12 @@ export default function() {
     return(
         <>
             <Header />
-            <h2>Cadastro de Novo Usuário</h2>
-            <form onSubmit={newUser}>
-                <label htmlFor="nome">Nome:</label>
+            <SectionSignup>
+            <h2>Novo Usuário</h2>
+            <form className="form" onSubmit={newUser}>
+                <label htmlFor="nome"></label>
                 <input
+                    className="inputs"
                     id="nome"
                     placeholder="Digite aqui seu nome completo"
                     name="username"
@@ -58,8 +128,9 @@ export default function() {
                     onChange={onChangeSignup}
                 />
                 
-                <label htmlFor="email">E-mail:</label>
+                <label htmlFor="email"></label>
                 <input
+                    className="inputs"
                     id="email"
                     placeholder="exemplo@exemplo.com"
                     type="email"
@@ -68,8 +139,9 @@ export default function() {
                     onChange={onChangeSignup}
                 />
 
-                <label htmlFor="senha">Senha</label>
+                <label htmlFor="senha"></label>
                 <input
+                    className="inputs"
                     id="senha"
                     placeholder="Insira uma senha de no mínimo 8 caracteres"
                     type="password"
@@ -78,9 +150,10 @@ export default function() {
                     onChange={onChangeSignup}
                 />
 
-                <button>Cadastrar</button>
+                <button className="button">Cadastrar</button>
             </form>
-            <button onClick={()=> goToBack(navigate)}>Voltar</button>
+            <button className="button-back" onClick={()=> goToBack(navigate)}>Voltar</button>
+            </SectionSignup>
         </>
     )
 }
