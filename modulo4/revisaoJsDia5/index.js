@@ -4,6 +4,8 @@ const objTest2 = { id: 2, name: "Samu", email: "astrodev@gmail.com" }
 
 const objTest3 = { id: 3, name: "Astrodev", email: undefined } 
 
+const objTest4 = {}
+
 
 const valid = (obj) => {
 
@@ -17,14 +19,19 @@ const valid = (obj) => {
         }
     })
 
-    if (error.length === 0) {
+    if(Object.keys(obj).length === 0) {
+        return {
+
+            isError: true,
+            errors: "O objeto veio vazio!"
+        }
+    }else if (error.length === 0) {
         
         return {
             isError: false,
             errors: error
         }
-    }
-    else {
+    }else {
         return {
 
             isError: true,
@@ -39,6 +46,8 @@ console.log(valid(objTest))
 console.log(valid(objTest2))
 
 console.log(valid(objTest3))
+
+console.log(valid(objTest4))
 
 
 // Object.keys(objTest).forEach((prop) => {
