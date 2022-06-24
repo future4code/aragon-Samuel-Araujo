@@ -1,4 +1,9 @@
-const objTest = { id: 2, name: "astrodev", email: "astrodev@gmail.com" } 
+const objTest = { id: undefined, name: undefined, email: "astrodev@gmail.com" } 
+
+const objTest2 = { id: 2, name: "Samu", email: "astrodev@gmail.com" } 
+
+const objTest3 = { id: 3, name: "Astrodev", email: undefined } 
+
 
 const valid = (obj) => {
 
@@ -6,7 +11,7 @@ const valid = (obj) => {
 
     Object.keys(obj).forEach((property) => {
 
-        if (objTest[property] === undefined) {
+        if (obj[property] === undefined) {
             error.push(property)
             
         }
@@ -30,6 +35,10 @@ const valid = (obj) => {
 }
 
 console.log(valid(objTest))
+
+console.log(valid(objTest2))
+
+console.log(valid(objTest3))
 
 
 // Object.keys(objTest).forEach((prop) => {
