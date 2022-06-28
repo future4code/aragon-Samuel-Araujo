@@ -1,4 +1,4 @@
-function checaRenovacaoRG() {
+function checaRenovacaoRG():boolean {
     const anoAtual:string = process.argv[2]
     const anoNascimento:string = process.argv[3]
     const anoEmissao:string = process.argv[4]
