@@ -25,14 +25,14 @@ export const postAddResponsible = async(req: Request, res: Response) => {
         WHERE Tasks.id LIKE "%${taskId}%";
         `)
         if(responsilbe[0] !== undefined) {
-            errorCode = 404 // mudar esse errorCode
+            errorCode = 401 
             throw new Error("A tarefa já foi atribuida a outro usuário.");
         }
         await connection.raw(`
         INSERT INTO Responsibles (userId, taskId)
         VALUES("${userId}","${taskId}")
         `)
-        res.status(201).send({message :"Usuário vinculado a uma tarefa com suecesso."}) // arrumar esse texto de respostas!
+        res.status(201).send({message :"Usuário vinculado a tarefa com suecesso."}) 
     } catch (error) {
         if(error.statusCode === 200) {
             res.status(500).end()

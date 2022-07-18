@@ -10,7 +10,7 @@ export const getUsers = async (req: Request, res: Response) => {
             SELECT * FROM Users
             WHERE LOWER(name) or LOWER(nickname) LIKE "%${search.toLowerCase()}%";
             `)
-            // Queey de pesquisa por name ou nickname; 
+            // Search query by name or nickname; 
             // console.log(users[0])
             if(users[0] === undefined) {
                 errorCode = 404

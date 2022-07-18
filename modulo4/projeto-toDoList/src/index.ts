@@ -30,12 +30,15 @@ app.get("/tasks", getTasks)
 // Endpoint to get responsible for the task
 app.get("/tasks/:taskId/users", getResponsibles)
 
-// Endpoint para cadastrar usuário a uma tarefa, o enucniado do projeto sugéri que o id do projeto venha por params, mas achei mais viavel vir pelo body
+// Endpoint to register a user for a task
+// O enunciado sugeriu as entradas por params, mas achei mais viavel ter as duas entradas por body
 app.post("/tasks/users", postAddResponsible)
 
-//Endpoint para editar o apelido do user **
+// Endpoint to edit user nickname
 app.put("/users/:userId", editNickname)
 
+// Endpoint to change task status
 app.put("/tasks/:taskId", editStatusTasks)
 
+// Endpoint to delete a task
 app.delete("/tasks/:taskId", deleteTask)
