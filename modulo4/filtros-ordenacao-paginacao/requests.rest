@@ -55,5 +55,5 @@ PUT http://localhost:3003/products/product1
 Content-Type: application/json
 
 {
-    "price": 1200.99
+    "price": 1210.99
 }

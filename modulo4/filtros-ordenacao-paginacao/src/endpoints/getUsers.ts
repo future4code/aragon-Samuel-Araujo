@@ -21,11 +21,16 @@ export const getUsers = async (req: Request, res: Response) => {
                 OFFSET ${offset};`)
             return res.status(200).send({ users: result })
         }
-        const [ result ] = await connection
-            .raw(`SELECT * FROM ${TABLE_USERS}
-            ORDER BY ${sort} ${order}
-            LIMIT ${limit}
-            OFFSET ${offset};`)
+        // const [ result ] = await connection
+        //     .raw(`SELECT * FROM ${TABLE_USERS}
+        //     ORDER BY ${sort} ${order}
+        //     LIMIT ${limit}
+        //     OFFSET ${offset};`)
+        const result = await connection(TABLE_USERS)
+            .select("*")
+            .orderBy(`${sort}`, `${order}`)
+            .limit(limit)
+            .offset(offset)
         res.status(200).send({ users: result })
     } catch (error) {
         res.status(errorCode).send({ message: error.message })
