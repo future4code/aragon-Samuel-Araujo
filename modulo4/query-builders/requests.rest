@@ -13,10 +13,10 @@ Content-Type: application/json
 }
 
 ### Get all perfumes
-GET http://localhost:3003/perfumes?&sort=id&order=desc&limit=5&page=1
+GET http://localhost:3003/perfumes?&sort=name&limit=5&page=1
 
 ### Get perfumes by name, brand or id
-GET http://localhost:3003/perfumes?q=b
+GET http://localhost:3003/perfumes?q=12300099999313123
 
 ### Edit perfume price
 PUT http://localhost:3003/perfumes/3

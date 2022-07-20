@@ -12,6 +12,15 @@ export const getPerfumes = async(req: Request, res: Response) => {
         const page = Number(req.query.page) || 1
         const offset = limit * (page - 1)
         if(query) {
+            const checkExists = await connection(TABLE_PERFUMES)
+            .select()
+            .where("id", "LIKE", `%${query}%`)
+            .orWhere("name", "LIKE", `%${query}%`)
+            .orWhere("brand", "LIKE", `%${query}%`)
+        if(checkExists.length === 0) {
+            errorCode = 404
+            throw new Error("Perfume não encontrado.")
+        }
             const result = await connection(TABLE_PERFUMES)
                 .select()
                 .where("id", "LIKE", `%${query}%`)
@@ -20,7 +29,7 @@ export const getPerfumes = async(req: Request, res: Response) => {
                 .orderBy(`${sort}`, `${order}`)
                 .limit(limit)
                 .offset(offset)
-               return res.status(200).send({message: "Perfume(s) encontrado com sucesso", result})
+               return res.status(200).send({message: "Perfume(s) encontrado(s) com sucesso", result})
         }
          const result = await connection(TABLE_PERFUMES)
             .select()
