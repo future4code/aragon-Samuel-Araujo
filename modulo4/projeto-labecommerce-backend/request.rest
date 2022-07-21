@@ -1,0 +1,11 @@
+### Ping - Endpoint for test
+GET http://localhost:3003/ping
+
+### User registration - Endpoint for user registration
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "email": "mcdonalts@gmail.com",
+    "password": "burguerKing"
+}
