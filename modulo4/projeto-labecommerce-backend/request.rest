@@ -9,3 +9,6 @@ Content-Type: application/json
     "email": "mcdonalts@gmail.com",
     "password": "burguerKing"
 }
+
+### Get all users
+GET http://localhost:3003/users
