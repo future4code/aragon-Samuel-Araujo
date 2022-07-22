@@ -21,3 +21,6 @@ Content-Type: application/json
     "name": "Fanta uva",
     "price": 5.90
 }
+
+### Get all products
+GET http://localhost:3003/products

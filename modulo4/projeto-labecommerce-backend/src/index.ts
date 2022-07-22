@@ -5,6 +5,7 @@ import { ping } from "./endpoints/ping"
 import { userRegistration } from "./endpoints/userRegistration"
 import { getUsers } from "./endpoints/getUsers"
 import { registerProduct } from "./endpoints/registerProduct"
+import { getProducts } from "./endpoints/getProducts"
 
 dotenv.config()
 const app = express()
@@ -26,3 +27,6 @@ app.get('/users', getUsers)
 
 // Endpoint for product registration
 app.post('/products', registerProduct)
+
+// Endpoint to get all products 
+app.get('/products', getProducts)
