@@ -24,3 +24,13 @@ Content-Type: application/json
 
 ### Get all products
 GET http://localhost:3003/products
+
+### Register purchases
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "user_id": "1",
+    "product_id": "2",
+    "quantity": 2
+}

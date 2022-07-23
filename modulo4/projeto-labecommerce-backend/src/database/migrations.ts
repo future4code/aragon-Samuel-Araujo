@@ -1,6 +1,6 @@
 import connection from "./connection"
 import { products, users } from "./data"
-import { TABLE_PRODUCTS, TABLE_USERS } from "./tableNames"
+import { TABLE_PRODUCTS, TABLE_PURCHASES, TABLE_USERS } from "./tableNames"
 
 const printError = (error: any) => {
     console.log(error.sqlMessage || error.message);
@@ -8,7 +8,7 @@ const printError = (error: any) => {
 
 const createTables = async () => {
     await connection.raw(`
-        DROP TABLE IF EXISTS ${TABLE_USERS}, ${TABLE_PRODUCTS};
+        DROP TABLE IF EXISTS ${TABLE_USERS}, ${TABLE_PRODUCTS}, ${TABLE_PURCHASES};
 
         CREATE TABLE IF NOT EXISTS ${TABLE_USERS}(
             id VARCHAR(255) PRIMARY KEY,
@@ -20,6 +20,16 @@ const createTables = async () => {
             id VARCHAR(255) PRIMARY KEY,
             name VARCHAR(255) NOT NULL ,
             price DECIMAL(6,2) NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS ${TABLE_PURCHASES}(
+            id VARCHAR(255) PRIMARY KEY,
+            user_id VARCHAR(255) NOT NULL,
+            product_id VARCHAR(255) NOT NULL,
+            quantity INT NOT NULL,
+            total_price DECIMAL(6,2) NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES ${TABLE_USERS}(id),
+            FOREIGN KEY (product_id ) REFERENCES ${TABLE_PRODUCTS}(id)
         );
     `)
     .then(() => {
