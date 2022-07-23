@@ -7,7 +7,7 @@ export const userRegistration = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
         const {email, password} = req.body
-        // Input validations -- Email
+        // Input validations -- email
         if(!email) {
             errorCode = 404
             throw new Error("A propriedade 'email' está vazia!")
@@ -23,6 +23,15 @@ export const userRegistration = async (req: Request, res: Response) => {
         if(!email.includes('.')) {
             errorCode = 406
             throw new Error("'email' deve conter '.'(ponto).");
+        }
+        // Input validations -- password
+        if(!password) {
+            errorCode = 404
+            throw new Error("A propriedade 'password' está vazia!")
+        }
+        if(typeof password !== "string") {
+            errorCode = 406
+            throw new Error("A propriedade 'password' deve ser do tipo string.")
         }
         const newUser : User = { id: `${Date.now()}`, email, password }
         await connection(TABLE_USERS)
