@@ -4,9 +4,26 @@ import { TABLE_USERS } from "../database/tableNames";
 import { User } from "../models/User";
 
 export const userRegistration = async (req: Request, res: Response) => {
-    const errorCode = 400
+    let errorCode = 400
     try {
         const {email, password} = req.body
+        // Input validations -- Email
+        if(!email) {
+            errorCode = 404
+            throw new Error("A propriedade 'email' está vazia!")
+        }
+        if(typeof email !== "string") {
+            errorCode = 406
+            throw new Error("A propriedade 'email' deve ser do tipo string.")
+        }
+        if(!email.includes('@')) {
+            errorCode = 406
+            throw new Error("'email' deve conter '@'.");
+        }
+        if(!email.includes('.')) {
+            errorCode = 406
+            throw new Error("'email' deve conter '.'(ponto).");
+        }
         const newUser : User = { id: `${Date.now()}`, email, password }
         await connection(TABLE_USERS)
             .insert(newUser)
