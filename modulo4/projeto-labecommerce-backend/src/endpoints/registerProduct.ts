@@ -25,6 +25,16 @@ export const registerProduct = async (req: Request, res: Response) => {
             errorCode = 406
             throw new Error("A propriedade 'price' deve ser do tipo number.")
         }
+        // Bussiness rules -- name
+        if(name.length < 4) {
+            errorCode = 406
+            throw new Error("A propriedade 'name' deve ter ao menos 4 caracteres.")
+        }
+        // Bussiness rules -- price
+        if(price <= 0) {
+            errorCode = 406
+            throw new Error("A propriedade 'price' deve ser maior que 0")
+        }
         const newProduct : Product = { id: `${Date.now()}`, name, price }
         await connection(TABLE_PRODUCTS)
             .insert(newProduct)
