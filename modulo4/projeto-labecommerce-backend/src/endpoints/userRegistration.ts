@@ -33,6 +33,14 @@ export const userRegistration = async (req: Request, res: Response) => {
             errorCode = 406
             throw new Error("A propriedade 'password' deve ser do tipo string.")
         }
+        // Bussiness rules -- email
+        const checkExistenceOfEmail = await connection(TABLE_USERS)
+            .select()
+            .where("email", "=", `${email}`)
+        if(checkExistenceOfEmail.length !== 0) {
+            errorCode = 406
+            throw new Error("Este email já foi cadastrado!");
+        }
         const newUser : User = { id: `${Date.now()}`, email, password }
         await connection(TABLE_USERS)
             .insert(newUser)
