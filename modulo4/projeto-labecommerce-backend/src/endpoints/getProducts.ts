@@ -5,8 +5,11 @@ import { TABLE_PRODUCTS } from "../database/tableNames";
 export const getProducts = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
+        const sort = req.query.sort || 'id'
+        const order = req.query.order || 'asc'
         const result = await connection(TABLE_PRODUCTS)
             .select()
+            .orderBy(`${sort}`, `${order}`)
         res.status(200).send({message: "Produtos econtrados!", result})
     } catch (error) {
         if (error.statusCode === 200) {
