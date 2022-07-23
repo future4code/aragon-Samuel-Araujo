@@ -39,7 +39,12 @@ export const userRegistration = async (req: Request, res: Response) => {
             .where("email", "=", `${email}`)
         if(checkExistenceOfEmail.length !== 0) {
             errorCode = 406
-            throw new Error("Este email já foi cadastrado!");
+            throw new Error("Este email já foi cadastrado!")
+        }
+        // Bussiness rules -- password
+        if(password.length < 6) {
+            errorCode = 406
+            throw new Error("A propriedade 'password' deve ter ao menos 6 caracteres.")
         }
         const newUser : User = { id: `${Date.now()}`, email, password }
         await connection(TABLE_USERS)
