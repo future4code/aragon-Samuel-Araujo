@@ -4,9 +4,27 @@ import { TABLE_PRODUCTS } from "../database/tableNames";
 import { Product } from "../models/Product";
 
 export const registerProduct = async (req: Request, res: Response) => {
-    const errorCode = 400
+    let errorCode = 400
     try {
         const {name, price} = req.body
+        // Input validations -- name
+        if(!name) {
+            errorCode = 404
+            throw new Error("A propriedade 'name' está vazia!")
+        }
+        if(typeof name !== "string") {
+            errorCode = 406
+            throw new Error("A propriedade 'name' deve ser do tipo string.")
+        }
+        // Input validations -- price
+        if(!price) {
+            errorCode = 404
+            throw new Error("A propriedade 'price' está vazia!")
+        }
+        if(typeof price !== "number") {
+            errorCode = 406
+            throw new Error("A propriedade 'price' deve ser do tipo number.")
+        }
         const newProduct : Product = { id: `${Date.now()}`, name, price }
         await connection(TABLE_PRODUCTS)
             .insert(newProduct)

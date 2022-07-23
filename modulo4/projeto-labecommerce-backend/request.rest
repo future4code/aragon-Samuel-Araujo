@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Get all products
-GET http://localhost:3003/products
+GET http://localhost:3003/products?order=desc&sort=name
 
 ### Register purchases
 POST http://localhost:3003/purchases
