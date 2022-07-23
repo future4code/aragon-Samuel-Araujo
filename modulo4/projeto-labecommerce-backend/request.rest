@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### Get all users
-GET http://localhost:3003/users
+GET http://localhost:3003/users?order=desc
 
 ### Product registration - Endpoint for product registration
 POST http://localhost:3003/products
