@@ -7,6 +7,7 @@ import { getUsers } from "./endpoints/getUsers"
 import { registerProduct } from "./endpoints/registerProduct"
 import { getProducts } from "./endpoints/getProducts"
 import { registerPurchases } from "./endpoints/registerPurchases"
+import { getPurchasesByUsers } from "./endpoints/getPurchasesByUsers"
 
 dotenv.config()
 const app = express()
@@ -34,3 +35,6 @@ app.get('/products', getProducts)
 
 // Endpoint for purchases 
 app.post('/purchases', registerPurchases)
+
+// Endpoint to get all products 
+app.get('/users/:user_id/purchase', getPurchasesByUsers)

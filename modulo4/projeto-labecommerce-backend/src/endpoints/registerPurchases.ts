@@ -21,7 +21,7 @@ export const registerPurchases = async (req: Request, res: Response) => {
         }
         await connection(TABLE_PURCHASES)
             .insert(newPurchases)
-        res.status(201).send({message: "Compra realizado com sucesso!", newPurchases})
+        res.status(201).send({message: "Compra realizada com sucesso!", newPurchases})
     } catch (error) {
         if (error.statusCode === 200) {
             res.status(500).end()
