@@ -2,7 +2,7 @@
 GET https://labecommerce-samukatiom.herokuapp.com/ping
 
 ### User registration - Endpoint for user registration
-POST http:https://labecommerce-samukatiom.herokuapp.com/users
+POST https://labecommerce-samukatiom.herokuapp.com/users
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### Get all users
-GET https://labecommerce-samukatiom.herokuapp.com/users?order=desc
+GET https://labecommerce-samukatiom.herokuapp.com/users?order=desc&sort=email
 
 ### Product registration - Endpoint for product registration
 POST https://labecommerce-samukatiom.herokuapp.com/products
