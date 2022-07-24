@@ -7,6 +7,16 @@ export const getUsers = async (req: Request, res: Response) => {
     try {
         const sort = req.query.sort || 'id'
         const order = req.query.order || 'asc'
+        // Input validations -- sort
+        if(sort !== 'id' && sort !== 'email') {
+            errorCode = 406
+            throw new Error("'sort' pode receber apenas os seguintes valores : 'id', e 'email'.")
+        }
+        // Input validations -- sort
+        if(order !== 'asc' && order !== 'desc') {
+            errorCode = 406
+            throw new Error("'order' pode receber apenas os seguintes valores : 'asc' e 'desc'.")
+        }
         const result = await connection(TABLE_USERS)
             .select('id', 'email')
             .orderBy(`${sort}`, `${order}`)
