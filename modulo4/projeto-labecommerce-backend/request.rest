@@ -1,8 +1,8 @@
 ### Ping - Endpoint for test
-GET http://localhost:3003/ping
+GET https://labecommerce-samukatiom.herokuapp.com/ping
 
 ### User registration - Endpoint for user registration
-POST http://localhost:3003/users
+POST http:https://labecommerce-samukatiom.herokuapp.com/users
 Content-Type: application/json
 
 {
@@ -11,22 +11,22 @@ Content-Type: application/json
 }
 
 ### Get all users
-GET http://localhost:3003/users?order=desc
+GET https://labecommerce-samukatiom.herokuapp.com/users?order=desc
 
 ### Product registration - Endpoint for product registration
-POST http://localhost:3003/products
+POST https://labecommerce-samukatiom.herokuapp.com/products
 Content-Type: application/json
 
 {
-    "name": "Fanta uva",
-    "price": 5.90
+    "name": "Sorvete de Creme",
+    "price": 20.90
 }
 
 ### Get all products
-GET http://localhost:3003/products?order=desc&sort=name
+GET https://labecommerce-samukatiom.herokuapp.com/products?order=desc&sort=name
 
 ### Register purchases
-POST http://localhost:3003/purchases
+POST https://labecommerce-samukatiom.herokuapp.com/purchases
 Content-Type: application/json
 
 {
@@ -36,4 +36,4 @@ Content-Type: application/json
 }
 
 ### Get purchase by user
-GET http://localhost:3003/users/1/purchase?sort=total_price
+GET https://labecommerce-samukatiom.herokuapp.com/users/1/purchase?order=asc&sort=name

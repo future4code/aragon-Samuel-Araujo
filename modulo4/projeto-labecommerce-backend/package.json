@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build/index.js",
     "build": "tsc",
     "dev": "ts-node-dev ./src/index.ts",
     "migrations": "tsc && node ./build/database/migrations.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Samukatiom",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.12",
