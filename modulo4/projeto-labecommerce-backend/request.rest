@@ -32,8 +32,8 @@ Content-Type: application/json
 {
     "user_id": "1",
     "product_id": "3",
-    "quantity": 2
+    "quantity": 10
 }
 
 ### Get purchase by user
-GET http://localhost:3003/users/1/purchase
+GET http://localhost:3003/users/1/purchase?sort=total_price
